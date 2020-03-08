@@ -14,13 +14,22 @@ module ProxyFetcher
     #
     # @return [Manager]
     #
-    def initialize(refresh = true, validate = false)
+    def initialize(refresh = true, validate = false, files = [] of String | Path)
       @proxies = [] of Proxy
 
       if refresh
         refresh_list!
         cleanup! if validate
       end
+
+      files.each do |file|
+        File.read_lines(file).each do |line|
+          addr, port = line.split(":", 2)
+          @proxies << Proxy.new(addr, port.to_i)
+        end
+      end
+
+      @proxies.uniq!
     end
 
     # Update current proxy list using configured providers.
