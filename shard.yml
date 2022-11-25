@@ -1,8 +1,8 @@
 name: proxy_fetcher
-version: 0.3.0
+version: 0.4.0
 
 authors:
-  - Nikita Bulai <bulaj.nikita@gmail.com>
+  - Dakad
 
 targets:
   proxy_fetcher:
@@ -12,12 +12,6 @@ crystal: ">= 1.0.0"
 
 license: MIT
 
-dependencies:
-  halite:
-    github: icyleaf/halite
-    version: ~> 0.10
-  http_proxy:
-    github: mamantoha/http_proxy
 development_dependencies:
   ameba:
     github: crystal-ameba/ameba
@@ -25,3 +19,10 @@ development_dependencies:
   icr:
     github: crystal-community/icr
     branch: master
+
+dependencies:
+  halite:
+    github: icyleaf/halite
+    version: ~> 0.10
+  http_proxy:
+    github: mamantoha/http_proxy

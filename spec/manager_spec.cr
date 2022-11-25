@@ -6,6 +6,11 @@ describe ProxyFetcher::Manager do
     manager.proxies.empty?.should be_false
   end
 
+  it "loads proxy list from local files" do
+    manager = ProxyFetcher::Manager.new(refresh: false, files: ["spec/proxies.txt"])
+    manager.proxies.empty?.should be_false
+  end
+
   it "doesn't load proxy list on initialization if `refresh` argument was set to false" do
     manager = ProxyFetcher::Manager.new(refresh: false)
     manager.proxies.empty?.should be_true
